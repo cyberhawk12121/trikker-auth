@@ -21,3 +21,12 @@ func (h *AuthHandler) Register(c *gin.Context) {
 	}
 	c.JSON(200, user)
 }
+
+func (h *AuthHandler) Login(c *gin.Context) {
+	user, err := h.authService.LoginUser(c)
+	if err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(200, user)
+}
