@@ -64,3 +64,25 @@ func (s SQLUserRepository) FindUserByID(userId int64) (*models.User, error) {
 	return u, nil
 }
 
+func (s SQLUserRepository) FindUserByEmail(email string) (*models.User, error) {
+	u := &models.User{}
+
+	query := `
+	SELECT first_name, last_name, email, user_type FROM users WHERE email= $1`
+	err := s.db.QueryRow(query, email).Scan(&u.First_Name, &u.Last_Name, &u.User_Type)
+	if err != nil {
+		return nil, err
+	}
+
+	return u, nil
+}
+
+func (s SQLUserRepository) DeleteUser(id int64) error {
+	query := `
+	DELETE FROM users WHERE id=$1`
+	_, err := s.db.Exec(query, id)
+	if err != nil {
+		return err
+	}
+	return nil
+}
