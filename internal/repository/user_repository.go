@@ -39,3 +39,28 @@ func (s SQLUserRepository) CreateUser(user *models.User) (*models.User, error) {
 
 	return user, nil
 }
+
+func (s SQLUserRepository) UpdateUser(user *models.User) error {
+	query := `
+	UPDATE users 
+	SET first_name= $1, last_name=$2, user_type= $3, updated_at= $4
+	WHERE id=$5`
+
+	now := time.Now()
+	_, err := s.db.Exec(query, user.First_Name, user.Last_Name, user.User_Type, now)
+	return err
+}
+
+func (s SQLUserRepository) FindUserByID(userId int64) (*models.User, error) {
+	u := &models.User{}
+
+	query := `
+	SELECT first_name, last_name, email, user_type FROM users WHERE id= $1`
+	err := s.db.QueryRow(query, userId).Scan(&u.First_Name, &u.Last_Name, &u.User_Type)
+	if err != nil {
+		return nil, err
+	}
+
+	return u, nil
+}
+
