@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/cyberhawk12121/trikker/auth/internal/models"
+	"module github.com/cyberhawk12121/trikker-auth/internal/models"
 )
 
 type UserRepository interface {
