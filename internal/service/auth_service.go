@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/cyberhawk12121/trikker/auth/internal/models"
+	"github.com/cyberhawk12121/trikker/auth/internal/repository"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
-	"github.com/trikker/auth/internal/models"
-	"github.com/trikker/auth/internal/repository"
 	"golang.org/x/crypto/bcrypt"
 )
 

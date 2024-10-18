@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/trikker/auth/internal/api"
-	"github.com/trikker/auth/internal/db"
-	"github.com/trikker/auth/internal/repository"
-	"github.com/trikker/auth/internal/service"
+	"github.com/cyberhawk12121/trikker/auth/internal/api"
+	"github.com/cyberhawk12121/trikker/auth/internal/db"
+	"github.com/cyberhawk12121/trikker/auth/internal/repository"
+	"github.com/cyberhawk12121/trikker/auth/internal/service"
 )
 
 func main() {
@@ -20,6 +20,10 @@ func main() {
 		log.Fatalf("Failed to load configurations: %v", err)
 	}
 
+	// Connect to database
+	// 1. Create a new connection to the database
+	// 2. Maybe for later if required we can have a connection pool
+	// 3. Run the migrations everytime the server starts (if required)
 	database, err := db.Connect(&cfg)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)

@@ -1,8 +1,8 @@
 package api
 
 import (
+	"github.com/cyberhawk12121/trikker/auth/internal/service"
 	"github.com/gin-gonic/gin"
-	"github.com/trikker/auth/internal/service"
 )
 
 type AuthHandler struct {

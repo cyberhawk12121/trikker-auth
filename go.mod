@@ -1,4 +1,4 @@
-module github.com/trikker/auth
+module github.com/cyberhawk12121/trikker/auth
 
 go 1.22.0
 
