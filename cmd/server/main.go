@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"time"
 
-	"module github.com/cyberhawk12121/trikker-auth/internal/api"
-	"module github.com/cyberhawk12121/trikker-auth/internal/db"
-	"module github.com/cyberhawk12121/trikker-auth/internal/repository"
-	"module github.com/cyberhawk12121/trikker-auth/internal/service"
+	"github.com/cyberhawk12121/trikker-auth/internal/api"
+	"github.com/cyberhawk12121/trikker-auth/internal/db"
+	"github.com/cyberhawk12121/trikker-auth/internal/repository"
+	"github.com/cyberhawk12121/trikker-auth/internal/service"
 )
 
 func main() {
